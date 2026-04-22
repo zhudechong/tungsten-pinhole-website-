@@ -1,120 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicomTech - High Precision Tungsten Pinhole</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-        }
-        header h1 {
-            font-size: 40px;
-            margin: 0;
-        }
-        header img.logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100px;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #003366;
-        }
-        .product-img {
-            display: block;
-            margin: 20px auto;
-            width: 70%;
-            max-width: 800px;  /* Set a larger width */
-        }
-        .contact-info {
-            text-align: left;  /* Left align the text */
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #003366;
-            color: white;
-            margin-top: 30px;
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-        td {
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PicomTech - High Precision Tungsten Pinhole</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #222;
+    }
+
+    /* 顶部整栏保留全宽 */
+    header {
+      background-color: #0a3d78;
+      color: white;
+      width: 100%;
+    }
+
+    /* 中间内容容器：关键就在这里 */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between; /* 左右对齐 */
+      align-items: center; /* 垂直居中 */
+      padding: 18px 0 16px;
+    }
+
+    .header-inner h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      flex-grow: 1; /* 使标题居中 */
+      text-align: center;
+    }
+
+    .header-inner p {
+      margin: 8px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .logo {
+      width: 78px;
+      height: auto;
+    }
+
+    main {
+      padding: 24px 0 18px;
+    }
+
+    .content-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+    }
+
+    h2 {
+      color: #0a3d78;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    .overview-text {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .product-image {
+      display: block;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto 26px;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      margin-bottom: 26px;
+      font-size: 15px;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #d9d9d9;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f7f9fc;
+      width: 28%;
+    }
+
+    .contact-text {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .email-line {
+      font-size: 15px;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .email-line a {
+      color: #0a3d78;
+      text-decoration: none;
+    }
+
+    .email-line a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 22px;
+      background-color: #0a3d78;
+      color: white;
+      text-align: center;
+      padding: 16px 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+
+      .logo {
+        position: static;
+        display: block;
+        margin: 0 auto 12px;
+        width: 72px;
+      }
+
+      .header-inner h1 {
+        font-size: 24px;
+      }
+
+      .content-card {
+        padding: 18px;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <img src="logo.png" alt="PicomTech Logo" class="logo">
-        <h1>Welcome to PicomTech</h1>
-        <p>High Precision Tungsten Pinhole for Synchrotron Radiation Imaging</p>
-    </header>
+  <header>
+    <div class="container header-inner">
+      <h1>Welcome to PicomTech</h1>
+      <img src="logo.png" alt="PicomTech Logo" class="logo">
+    </div>
+  </header>
 
-    <section>
+  <main>
+    <div class="container">
+      <div class="content-card">
         <h2>Product Overview</h2>
-        <p>At PicomTech, we specialize in manufacturing high-precision tungsten pinholes, which are meticulously machined to form precise apertures. The tungsten material is processed into a stepped shape, which is then stacked to form narrow slits. By installing these slits in both horizontal and vertical directions, we create a pinhole that is ideal for X-ray pinhole camera applications at beam diagnostic beamlines to measure transverse beam sizes.</p>
+        <div class="overview-text">
+          At PicomTech, we specialize in manufacturing high-precision tungsten pinholes for synchrotron radiation applications.
+          Our pinholes are fabricated by precision machining tungsten into stepped slit components, which are then assembled in
+          horizontal and vertical directions to form a pinhole structure. This design is intended for X-ray pinhole camera systems
+          at beam diagnostic beamlines, primarily for measuring transverse beam sizes and emittance in storage rings.
+        </div>
 
-        <img src="your-image-url.jpg" alt="Tungsten Pinhole" class="product-img">
+        <img src="your-image-url.jpg" alt="High Precision Tungsten Pinhole" class="product-image">
 
         <h2>Key Specifications</h2>
         <table>
-            <tr>
-                <td>Aperture Range</td>
-                <td>10 µm – 100 µm</td>
-            </tr>
-            <tr>
-                <td>Thickness</td>
-                <td>4 mm</td>
-            </tr>
-            <tr>
-                <td>Aperture Accuracy</td>
-                <td>±3 µm</td>
-            </tr>
-            <tr>
-                <td>Material</td>
-                <td>Tungsten</td>
-            </tr>
-            <tr>
-                <td>Applications</td>
-                <td>Synchrotron radiation imaging, X-ray beam diagnostics</td>
-            </tr>
+          <tr>
+            <th>Specification</th>
+            <th>Details</th>
+          </tr>
+          <tr>
+            <td>Aperture Range</td>
+            <td>10 μm – 100 μm</td>
+          </tr>
+          <tr>
+            <td>Thickness</td>
+            <td>4 mm</td>
+          </tr>
+          <tr>
+            <td>Aperture Accuracy</td>
+            <td>±3 μm</td>
+          </tr>
+          <tr>
+            <td>Material</td>
+            <td>Tungsten</td>
+          </tr>
+          <tr>
+            <td>Applications</td>
+            <td>X-ray pinhole camera, transverse beam size measurement, emittance measurement in storage rings</td>
+          </tr>
         </table>
 
         <h2>Contact Us</h2>
-        <p>If you would like to request a quote, or if you need more information about our tungsten pinhole, please get in touch with us.</p>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:salepicomtech@gmail.com">salepicomtech@gmail.com</a></p>
+        <div class="contact-text">
+          If you would like to request a quote, or if you need more information about our tungsten pinhole, please get in touch with us.
         </div>
-    </section>
+        <div class="email-line">
+          Email: <a href="mailto:salepicomtech@gmail.com">salepicomtech@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2026 PicomTech. All rights reserved.</p>
-    </footer>
+  <footer>
+    © 2026 PicomTech. All rights reserved.
+  </footer>
 
 </body>
 </html>
