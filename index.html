@@ -16,9 +16,17 @@
             color: white;
             text-align: center;
             padding: 20px 0;
+            position: relative;
         }
         header h1 {
             font-size: 40px;
+            margin: 0;
+        }
+        header img.logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
         }
         section {
             margin: 20px;
@@ -30,22 +38,29 @@
         h2 {
             color: #003366;
         }
-        .logo {
+        .product-img {
             display: block;
             margin: 20px auto;
-            width: 200px;
+            width: 70%;
+            max-width: 600px;
         }
         .contact-info {
             background-color: #004d99;
             color: white;
-            padding: 10px;
+            padding: 5px 15px;
             text-align: center;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 16px;
+            width: 100%;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .contact-info a {
             color: white;
             text-decoration: none;
+            margin-left: 10px;
         }
         footer {
             text-align: center;
@@ -59,6 +74,7 @@
 <body>
 
     <header>
+        <img src="modern_precision_optics_brand_logo.png" alt="PicomTech Logo" class="logo">
         <h1>Welcome to PicomTech</h1>
         <p>High Precision Tungsten Pinhole for Synchrotron Radiation Imaging</p>
     </header>
@@ -67,7 +83,7 @@
         <h2>About PicomTech</h2>
         <p>At PicomTech, we specialize in manufacturing high-precision tungsten pinholes designed for synchrotron radiation imaging applications. Our pinholes offer exceptional durability and aperture control, making them ideal for beamline measurements, imaging, and diagnostics at synchrotron facilities.</p>
 
-        <img src="your-image-url.jpg" alt="Tungsten Pinhole" class="logo">
+        <img src="your-image-url.jpg" alt="Tungsten Pinhole" class="product-img">
 
         <h2>Key Specifications</h2>
         <table>
